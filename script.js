@@ -227,8 +227,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Initialize all tooltips
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl);
+document.addEventListener('DOMContentLoaded', function() {
+    const popupContainer = document.querySelector('.popup-container');
+    const popupCloseButton = document.getElementById('popup-close');
+
+    // Show the popup on page load
+    popupContainer.style.display = 'block';
+
+    // Hide the popup when the close button is clicked
+    popupCloseButton.addEventListener('click', function() {
+        popupContainer.style.display = 'none';
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const popupContainer = document.querySelector('.popup-container');
+
+    setTimeout(() => {
+        popupContainer.style.display = 'block';
+    }, 2000); // Display after 2 seconds
+});
+
+// Initialize AOS
+AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
 });
