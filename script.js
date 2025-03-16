@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setTimeout(() => {
         popupContainer.style.display = 'block';
-    }, 2000); // Display after 2 seconds
+    }); // Display after 2 seconds
 });
 
 // Initialize AOS
