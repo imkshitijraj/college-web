@@ -306,7 +306,8 @@ body {
 
 /* Footer */
 .footer {
-    background: var(--dark-color);
+    /* background: var(--dark-color); */
+    background-color: #312929;
     color: #fff;
     padding: 5rem 0 2rem;
 }

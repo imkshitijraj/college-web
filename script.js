@@ -6,6 +6,24 @@ AOS.init({
     mirror: false
 });
 
+// Add navigation highlight functionality
+document.addEventListener('DOMContentLoaded', () => {
+    // Get all navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Get current page filename
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Highlight current page in navigation
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage) {
+            link.style.backgroundColor = 'rgba(255, 255, 0, 0.5)';
+            link.style.borderRadius = '4px';
+        }
+    });
+});
+
 // Navbar scroll behavior
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');

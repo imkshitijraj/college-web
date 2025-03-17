@@ -9,9 +9,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        #visitor-counter {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        #visitor-counter i {
+            color: rgb(11, 77, 164);
+        }
+        @media (max-width: 768px) {
+            #visitor-counter {
+                bottom: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="visitor-counter">
+        <i class="fas fa-users"></i>
+        <span>Total Visits: <span id="visitor-count">0</span></span>
+    </div>
     <div class="popup-container">
         <div class="popup-background"></div>
         <div class="popup">
@@ -59,7 +90,7 @@
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="hero-image">
-                        <img src="bg2.jpeg" alt="Hero Image" class="img-fluid rounded-lg shadow">
+                        <img src="bg2.jpeg" alt="Hero Image" class="img-fluid rounded-lg shadow" style="padding: 5px;">
                     </div>
                 </div>
             </div>
@@ -72,20 +103,26 @@
             <div class="row g-4">
                 <div class="col-md-3" data-aos="fade-up">
                     <div class="stat-card text-center">
-                        <h3>00</h3>
-                        <p>Innovators</p>
+                        <h3>100+</h3>
+                        <p><b>Innovators</b></p>
                     </div>
                 </div>
                 <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="stat-card text-center">
-                        <h3>00</h3>
-                        <p>Startups</p>
+                        <h3>70+</h3>
+                        <p><b>Startups</b></p>
                     </div>
                 </div>
                 <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="stat-card text-center">
-                        <h3>00</h3>
-                        <p>Investors</p>
+                        <h3>20+</h3>
+                        <p><b>Investors</b></p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card text-center">
+                        <h3>15+</h3>
+                        <p><b>Sponsor</b></p>
                     </div>
                 </div>
             </div>
@@ -153,5 +190,31 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Visitor counter code
+        document.addEventListener('DOMContentLoaded', () => {
+            const counterElement = document.getElementById('visitor-count');
+            let count = parseInt(localStorage.getItem('globalVisitorCount') || '0');
+            
+            function updateCounter(newCount) {
+                count = newCount;
+                localStorage.setItem('globalVisitorCount', count.toString());
+                counterElement.textContent = count;
+                localStorage.setItem('counterUpdate', Date.now().toString());
+            }
+            
+            updateCounter(count + 1);
+            
+            window.addEventListener('storage', (e) => {
+                if (e.key === 'globalVisitorCount') {
+                    counterElement.textContent = e.newValue;
+                }
+            });
+            
+            setInterval(() => {
+                counterElement.textContent = localStorage.getItem('globalVisitorCount') || '0';
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
