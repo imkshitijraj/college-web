@@ -13,7 +13,6 @@ body {
     line-height: 1.6;
     color: var(--dark-color);
 }
-
 /* Navigation */
 .navbar {
     background-color: rgba(31, 41, 55, 0.95);
