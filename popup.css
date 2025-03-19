@@ -33,7 +33,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    background: linear-gradient(135deg, #fcfcfc 0%, #edf0f3 100%);
     padding: 2.5rem;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -83,9 +83,9 @@ body {
     padding: 12px 30px;
     font-size: 1.1rem;
     border-radius: 50px;
-    background: linear-gradient(45deg, #007bff, #0056b3);
+    background: linear-gradient(45deg, #3a8be8, #063c76);
     border: none;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(72, 157, 249, 0.3);
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -126,10 +126,10 @@ body {
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #007bff, #00ff88, #007bff);
+    background: linear-gradient(45deg, #b3c2d2, #7ab9bc, #a6bfda);
     border-radius: 22px;
     z-index: -1;
-    animation: borderGlow 3s linear infinite;
+    /* animation: borderGlow 3s linear infinite; */
     opacity: 0.5;
 }
 
